@@ -4,9 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  TouchableHighlight,
 } from 'react-native';
-// import PropTypes from 'prop-types';
 
 interface randomNumberProps {
   id: number;
@@ -20,7 +18,9 @@ const RandomNumber = (props: randomNumberProps) => {
   const {id, randomNumber, isSelected, handlePress, isDisabled} = props;
 
   return (
-    <TouchableOpacity onPress={() => handlePress(id, randomNumber)} disabled={isDisabled}>
+    <TouchableOpacity
+      onPress={() => handlePress(id, randomNumber)}
+      disabled={isDisabled}>
       <Text style={[styles.random, isSelected && styles.selected]}>
         {randomNumber}
       </Text>

@@ -15,11 +15,11 @@ const shuffle = (array: Number[]) => {
   return array;
 };
 
-const Game = (props: {randomNumberCount: number, timeInterval: number}) => {
+const Game = (props: {randomNumberCount: number; timeInterval: number}) => {
   // Initial state
   const [gameStatus, setGameStatus] = useState('PLAYING');
-  // prettier-ignore
-  const [randomNumbers, setRandomNumbers] = useState([1, 2, 3]);
+
+  const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   // prettier-ignore
   const [selectedNumbers, setSelectedNumbers] = useState([false, false, false]);
   const [target, setTarget] = useState(0);
@@ -82,7 +82,9 @@ const Game = (props: {randomNumberCount: number, timeInterval: number}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.target, styles[`status_${gameStatus}`]]}>{target}</Text>
+      <Text style={[styles.target, styles[`status_${gameStatus}`]]}>
+        {target}
+      </Text>
       <View style={styles.randomContainer}>
         <Text>
           {randomNumbers.map((randomNumber: number, index: number) => (
